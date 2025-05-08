@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organic Farm</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #e8f5e9;
+            font-family: 'Arial', sans-serif;
+        }
+        header {
+            background-color: #2e7d32;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        footer {
+            background-color: #1b5e20;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 30px;
+        }
+        .farm-image {
+            width: 100%;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+        .farm-image:hover {
+            transform: scale(1.05);
+        }
+        .offers-section {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Organic Farm</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#products">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#offers">Offers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Welcome to Our Organic Farm</h1>
+        <p>Fresh, Healthy & 100% Organic Produce</p>
+    </header>
+
+    <div class="container mt-4">
+        <section id="about" class="mb-5">
+            <h2 class="text-center mb-3">About Us</h2>
+            <p class="text-center">Our organic farm is dedicated to growing fresh and sustainable produce, free from chemicals and pesticides. We believe in healthy living and environmentally friendly farming practices.</p>
+        </section>
+
+        <section id="products" class="mb-5">
+            <h2 class="text-center mb-3">Our Products</h2>
+            <div class="row g-4">
+                <div class="col-md-4 text-center">
+                    <img src="https://source.unsplash.com/400x300/?organic,vegetables" class="farm-image" alt="Vegetables">
+                    <h5 class="mt-2">Fresh Vegetables</h5>
+                </div>
+                <div class="col-md-4 text-center">
+                    <img src="https://source.unsplash.com/400x300/?organic,fruits" class="farm-image" alt="Fruits">
+                    <h5 class="mt-2">Seasonal Fruits</h5>
+                </div>
+                <div class="col-md-4 text-center">
+                    <img src="https://source.unsplash.com/400x300/?organic,herbs" class="farm-image" alt="Herbs">
+                    <h5 class="mt-2">Organic Herbs</h5>
+                </div>
+            </div>
+        </section>
+
+        <section id="offers" class="mb-5 text-center">
+            <h2 class="mb-3">Special Offers</h2>
+            <button class="btn btn-success" onclick="toggleOffers()">Show Offers & Charges</button>
+            <div class="offers-section mt-4" id="offersSection">
+                <h5>Current Deals:</h5>
+                <ul class="list-group mx-auto" style="max-width: 400px;">
+                    <li class="list-group-item">Buy 1 Get 1 Free on Organic Spinach</li>
+                    <li class="list-group-item">20% Off on All Seasonal Fruits</li>
+                    <li class="list-group-item">Free Delivery on Orders Above ₹500</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="contact" class="text-center mb-5">
+            <h2>Contact Us</h2>
+            <p>Email: info@organicfarm.com | Phone: +91-123-456-7890</p>
+        </section>
+    </div>
+
+    <footer>
+        &copy; 2025 Organic Farm. All rights reserved.
+    </footer>
+
+    <script>
+        function toggleOffers() {
+            const offers = document.getElementById('offersSection');
+            if (offers.style.display === 'none' || offers.style.display === '') {
+                offers.style.display = 'block';
+            } else {
+                offers.style.display = 'none';
+            }
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

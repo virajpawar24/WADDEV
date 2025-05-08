@@ -1,0 +1,25 @@
+
+/* public/css/styles.css */
+body {
+    background-color: #ca8181;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    color: #11e5e5;
+    margin-bottom: 30px;
+}
+
+.carousel-inner img {
+    height: 500px;
+    object-fit: cover;
+}
+
+.carousel-caption h5 {
+    font-size: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-caption p {
+    font-size: 1.2rem;
+}

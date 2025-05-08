@@ -1,0 +1,154 @@
+
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        input[type="text"], input[type="date"], input[type="email"] {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0 15px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>User Registration</h2>
+        <form id="regForm">
+            First Name: <input type="text" id="fname" required>
+            Last Name: <input type="text" id="lname" required>
+            Date of Birth: <input type="date" id="dob" required>
+            Gender:<br>
+            <input type="radio" name="gender" value="Male" required> Male
+            <input type="radio" name="gender" value="Female" required> Female<br><br>
+            Mobile: <input type="text" id="mobile" pattern="\\d{10}" required>
+            Email: <input type="email" id="email" required>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('regForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const data = {
+                fname: document.getElementById('fname').value,
+                lname: document.getElementById('lname').value,
+                dob: document.getElementById('dob').value,
+                gender: document.querySelector('input[name=gender]:checked').value,
+                mobile: document.getElementById('mobile').value,
+                email: document.getElementById('email').value
+            };
+            if (data.mobile.length !== 10) {
+                alert('Mobile must be 10 digits');
+                return;
+            }
+            let users = JSON.parse(localStorage.getItem('users')) || [];
+            users.push(data);
+            localStorage.setItem('users', JSON.stringify(users));
+            window.location.href = 'list.html';
+        });
+    </script>
+</body>
+</html>
+
+<!-- list.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e9f5ff;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h2>Registered Users</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>DOB</th>
+                <th>Gender</th>
+                <th>Mobile</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody id="userList"></tbody>
+    </table>
+
+    <script>
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+        const tbody = document.getElementById('userList');
+        users.forEach(u => {
+            const row = `<tr>
+                <td>${u.fname}</td>
+                <td>${u.lname}</td>
+                <td>${u.dob}</td>
+                <td>${u.gender}</td>
+                <td>${u.mobile}</td>
+                <td>${u.email}</td>
+            </tr>`;
+            tbody.innerHTML += row;
+        });
+    </script>
+</body>
+</html>

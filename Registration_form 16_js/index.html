@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Registration</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>User Registration</h2>
+        <form id="regForm">
+            <label>First Name:</label>
+            <input type="text" id="fname" required><br>
+
+            <label>Last Name:</label>
+            <input type="text" id="lname" required><br>
+
+            <label>Date of Birth:</label>
+            <input type="date" id="dob" required><br>
+
+            <label>Gender:</label>
+            <label><input type="radio" name="gender" value="Male" required> Male</label>
+            <label><input type="radio" name="gender" value="Female" required> Female</label><br>
+
+            <label>Mobile Number:</label>
+            <input type="text" id="mobile" pattern="[0-9]{10}" required>
+
+
+            <label>Email:</label>
+            <input type="email" id="email" required><br>
+
+            <button type="submit">Register</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('regForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const data = {
+                fname: document.getElementById('fname').value.trim(),
+                lname: document.getElementById('lname').value.trim(),
+                dob: document.getElementById('dob').value,
+                gender: document.querySelector('input[name="gender"]:checked')?.value,
+                mobile: document.getElementById('mobile').value.trim(),
+                email: document.getElementById('email').value.trim()
+            };
+
+            // Validate mobile length
+            if (data.mobile.length !== 10 || isNaN(data.mobile)) {
+                alert('Mobile number must be exactly 10 digits.');
+                return;
+            }
+
+            // Save to localStorage
+            let users = JSON.parse(localStorage.getItem('users')) || [];
+            users.push(data);
+            localStorage.setItem('users', JSON.stringify(users));
+
+            alert('Registration successful!');
+            window.location.href = 'list.html';
+        });
+    </script>
+</body>
+</html>

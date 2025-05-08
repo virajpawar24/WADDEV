@@ -1,0 +1,85 @@
+
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration</title>
+</head>
+<body>
+    <h2>User Registration</h2>
+    <form id="regForm">
+        First Name: <input type="text" id="fname" required><br><br>
+        Last Name: <input type="text" id="lname" required><br><br>
+        Date of Birth: <input type="date" id="dob" required><br><br>
+        Gender:
+        <input type="radio" name="gender" value="Male" required> Male
+        <input type="radio" name="gender" value="Female" required> Female<br><br>
+        Mobile: <input type="text" id="mobile" pattern="\\d{10}" maxlength="10" minlength="10" required placeholder="Enter 10-digit mobile number"><br><br>
+
+        Email: <input type="email" id="email" required><br><br>
+        <button type="submit">Register</button>
+    </form>
+
+    <script>
+        document.getElementById('regForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const data = {
+                fname: document.getElementById('fname').value,
+                lname: document.getElementById('lname').value,
+                dob: document.getElementById('dob').value,
+                gender: document.querySelector('input[name=gender]:checked').value,
+                mobile: document.getElementById('mobile').value,
+                email: document.getElementById('email').value
+            };
+            if (data.mobile.length !== 10) {
+                alert('Mobile must be 10 digits');
+                return;
+            }
+            let users = JSON.parse(localStorage.getItem('users')) || [];
+            users.push(data);
+            localStorage.setItem('users', JSON.stringify(users));
+            window.location.href = 'list.html';
+        });
+    </script>
+</body>
+</html>
+
+<!-- list.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User List</title>
+</head>
+<body>
+    <h2>Registered Users</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>DOB</th>
+                <th>Gender</th>
+                <th>Mobile</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody id="userList"></tbody>
+    </table>
+
+    <script>
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+        const tbody = document.getElementById('userList');
+        users.forEach(u => {
+            const row = `<tr>
+                <td>${u.fname}</td>
+                <td>${u.lname}</td>
+                <td>${u.dob}</td>
+                <td>${u.gender}</td>
+                <td>${u.mobile}</td>
+                <td>${u.email}</td>
+            </tr>`;
+            tbody.innerHTML += row;
+        });
+    </script>
+</body>
+</html>
