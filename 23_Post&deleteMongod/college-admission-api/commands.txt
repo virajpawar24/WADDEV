@@ -5,7 +5,7 @@ cd college-admission-api
 npm init -y
 
 npm install express mongoose body-parser
-
+server.js tayar karun code paste karane
 node server.js
 
 http://localhost:3000/api/admissions
