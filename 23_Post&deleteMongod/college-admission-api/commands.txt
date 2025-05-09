@@ -1,0 +1,48 @@
+bash
+mkdir college-admission-api
+cd college-admission-api
+
+npm init -y
+
+npm install express mongoose body-parser
+
+node server.js
+
+http://localhost:3000/api/admissions
+
+
+open cmd and write
+curl -X PUT http://localhost:3000/api/admissions/<id> \
+     -H "Content-Type: application/json" \
+     -d '{"name":"Updated Name","age":21,"course":"BSc IT","contact":"9876543210"}'
+
+
+for these assume "CURD" is a typo and you mean CRUD:
+
+Create
+
+Read
+
+Update
+
+Delete operations
+goto = mongodb://localhost:27017
+college_admissions
+
+“Insert Document”
+{
+  "_id": "681d81eab2d8cd29e5378bb4",
+  "name": "Viraj Pawar",
+  "age": 21,
+  "course": "B.Tech IT",
+  "contact": "9876543210"
+}
+When you refresh your GET API (http://localhost:3000/api/admissions),
+
+for POsT operation open cmd and write 
+curl -X POST http://localhost:3000/api/admissions \
+     -H "Content-Type: application/json" \
+     -d '{"name":"Viraj Pawar","age":21,"course":"B.Tech IT","contact":"9876543210"}'
+
+for delete 
+curl -X DELETE http://localhost:3000/api/admissions/<_id_here>

@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Department Grid</title>
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <style>
+        .grid-buttons .ui-block-a, 
+        .grid-buttons .ui-block-b, 
+        .grid-buttons .ui-block-c, 
+        .grid-buttons .ui-block-d, 
+        .grid-buttons .ui-block-e {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .dept-box {
+            background: #3b6fc4;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            display: inline-block;
+            width: 80px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Main Page -->
+<div data-role="page" id="home">
+    <div data-role="header">
+        <h1>Departments</h1>
+    </div>
+
+    <div data-role="content">
+        <div class="ui-grid-d grid-buttons">
+            <div class="ui-block-a">
+                <div class="dept-box">IT</div>
+                <a href="#it" data-role="button" style="background:#f57c00; color:white;">Button</a>
+            </div>
+            <div class="ui-block-b">
+                <div class="dept-box">COMP</div>
+                <a href="#comp" data-role="button" style="background:#f57c00; color:white;">Button</a>
+            </div>
+            <div class="ui-block-c">
+                <div class="dept-box">ETC</div>
+                <a href="#etc" data-role="button" style="background:#f57c00; color:white;">Button</a>
+            </div>
+            <div class="ui-block-d">
+                <div class="dept-box">MECH</div>
+                <a href="#mech" data-role="button" style="background:#f57c00; color:white;">Button</a>
+            </div>
+            <div class="ui-block-e">
+                <div class="dept-box">ELECT</div>
+                <a href="#elect" data-role="button" style="background:#f57c00; color:white;">Button</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- IT Page -->
+<div data-role="page" id="it">
+    <div data-role="header">
+        <h1>IT Department</h1>
+    </div>
+    <div data-role="content">
+        <p>Information Technology department deals with software and networking.</p>
+        <a href="#home" data-role="button">Back</a>
+    </div>
+</div>
+
+<!-- COMP Page -->
+<div data-role="page" id="comp">
+    <div data-role="header">
+        <h1>COMP Department</h1>
+    </div>
+    <div data-role="content">
+        <p>Computer Engineering focuses on software development and hardware systems.</p>
+        <a href="#home" data-role="button">Back</a>
+    </div>
+</div>
+
+<!-- ETC Page -->
+<div data-role="page" id="etc">
+    <div data-role="header">
+        <h1>ETC Department</h1>
+    </div>
+    <div data-role="content">
+        <p>Electronics and Telecommunication covers circuits, signal processing, and communication systems.</p>
+        <a href="#home" data-role="button">Back</a>
+    </div>
+</div>
+
+<!-- MECH Page -->
+<div data-role="page" id="mech">
+    <div data-role="header">
+        <h1>MECH Department</h1>
+    </div>
+    <div data-role="content">
+        <p>Mechanical Engineering deals with machines, design, and manufacturing processes.</p>
+        <a href="#home" data-role="button">Back</a>
+    </div>
+</div>
+
+<!-- ELECT Page -->
+<div data-role="page" id="elect">
+    <div data-role="header">
+        <h1>ELECT Department</h1>
+    </div>
+    <div data-role="content">
+        <p>Electrical Engineering focuses on electrical systems, power generation, and circuits.</p>
+        <a href="#home" data-role="button">Back</a>
+    </div>
+</div>
+
+</body>
+</html>
